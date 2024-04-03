@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HomeWork15</string>
+    <string name="text">text: </string>
+    <string name="counter">counter</string>
+    <string name="add">add</string>
+    <string name="clear">Clear</string>
+</resources>
