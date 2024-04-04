@@ -1,6 +1,7 @@
 package com.example.homework15
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -49,7 +50,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.addBtn.setOnClickListener {
             val text = binding.textInput.text.toString()
-            viewModel.add(text) }
+
+            if (text.isNotBlank()){
+                viewModel.add(text)
+            }else{
+                Toast.makeText(this, "Ошибка!", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         binding.clearBtn.setOnClickListener {
             viewModel.delete()
@@ -65,4 +72,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+     fun isValid(text: String): Boolean {
+        return text.matches(Regex("""[A-Za-z-]"""))
+    }
+
 }
